@@ -21,4 +21,14 @@ class ClienteController(val clienteService: ClienteService) {
     
     @GetMapping
     fun findAll( pageable: Pageable) = clienteService.findAllCli(pageable)
+    
+    @PutMapping("{id}")
+    fun update(@PathVariable id: Long, @RequestBody cliente: Cliente){
+        clienteService.update(id, cliente)
+    }
+    
+    @DeleteMapping("{id}")
+    fun deleteCli(@PathVariable id: Long){
+        clienteService.delete(id)
+    }
 }
