@@ -18,4 +18,4 @@ data class Locacao (
         val valorCarcao: Double,
         val valorLocacao: Double,
         val devolvido: Int
-        )
+)
