@@ -1,11 +1,24 @@
 package com.dev.pierre.projetofinance26062020.controller
 
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.RestController
+import com.dev.pierre.projetofinance26062020.model.Cliente
+import com.dev.pierre.projetofinance26062020.sservice.ClienteService
+import org.springframework.data.domain.Pageable
+import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping(value = ["/api/clientes"])
-class ClienteController {
+@RequestMapping("api/clientes")
+class ClienteController(val clienteService: ClienteService) {
     
+    @PostMapping()
+    fun salaver(@RequestBody cliente: Cliente){
+        clienteService.craete(cliente)
+    }
+    
+    @GetMapping("{id}")
+    fun getById(@PathVariable id: Long) : Cliente? {
+        return clienteService.getById(id)
+    }
+    
+    @GetMapping
+    fun findAll( pageable: Pageable) = clienteService.findAllCli(pageable)
 }
