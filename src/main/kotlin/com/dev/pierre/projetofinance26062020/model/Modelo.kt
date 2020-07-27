@@ -7,7 +7,15 @@ data class Modelo (
         
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name ="modelo_cod")
-        val medeloCod : Long,
-        val Descricao: String
+        @Column(name ="id")
+        val id: Int,
+        val nome: String,
+        val Descricao: String,
+        //
+        @ManyToOne
+        @JoinColumn(name = "id_marca")
+        val marca: Marca,
+        
+        @ManyToOne
+        val veiculo: Veiculo
 )

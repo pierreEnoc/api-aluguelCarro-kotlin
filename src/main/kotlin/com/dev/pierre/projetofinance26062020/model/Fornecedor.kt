@@ -3,15 +3,11 @@ package com.dev.pierre.projetofinance26062020.model
 import javax.persistence.*
 
 @Entity
-data class Marca (
-       
+data class Fornecedo (
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name ="id")
         val id: Int,
         val nome: String,
-        val descricao : String,
-        //@ManyToMany(mappedBy = "marcas")
-        @OneToMany
-        val modelo: List<Modelo>
+        val descripcao: String
 )

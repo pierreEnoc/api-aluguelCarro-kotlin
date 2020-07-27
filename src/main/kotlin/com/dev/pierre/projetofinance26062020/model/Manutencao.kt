@@ -1,17 +1,18 @@
 package com.dev.pierre.projetofinance26062020.model
 
+import java.util.*
 import javax.persistence.*
 
 @Entity
-data class Marca (
-       
+data class Manutencao (
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name ="id")
         val id: Int,
-        val nome: String,
-        val descricao : String,
-        //@ManyToMany(mappedBy = "marcas")
-        @OneToMany
-        val modelo: List<Modelo>
+        val valorManutencao: Double,
+        val dataManutencao: Date,
+
+         @ManyToOne
+         @JoinColumn(name = "id_veiculo")
+         val veiculo: Veiculo
 )

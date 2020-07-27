@@ -9,18 +9,18 @@ import org.springframework.stereotype.Service
 
 
 @Service
-class ClienteServiceImpl(val clienteRepository :  ClienteRepository) : ClienteService {
+class ClienteServiceImpl(private val clienteRepository :  ClienteRepository) : ClienteService {
     override fun craete(cliente: Cliente) {
         clienteRepository.save(cliente)
     }
     
-    override fun getById(id: Long): Cliente? = clienteRepository.findById(id).orElse(null)
+    override fun findById(id: Int): Cliente? = clienteRepository.findById(id).orElse(null)
     
-    override fun delete(id: Long) {
+    override fun delete(id: Int) {
         clienteRepository.deleteById(id)
     }
     
-    override fun update(id: Long, cliente: Cliente) {
+    override fun update(id: Int, cliente: Cliente) {
         craete(cliente)
     }
     

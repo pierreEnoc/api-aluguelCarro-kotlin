@@ -6,8 +6,8 @@ import org.springframework.data.domain.Pageable
 
 interface ClienteService {
     fun craete(cliente : Cliente)
-    fun getById(id: Long) : Cliente?
-    fun delete(id: Long)
-    fun update(id: Long, cliente: Cliente)
+    fun findById(id: Int) : Cliente?
+    fun delete(id: Int)
+    fun update(id: Int, cliente: Cliente)
     fun findAllCli(pageable: Pageable) : Page<Cliente?>
 }
