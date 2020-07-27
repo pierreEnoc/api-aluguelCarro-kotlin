@@ -11,7 +11,7 @@ data class Marca (
         val id: Int,
         val nome: String,
         val descricao : String,
-        //@ManyToMany(mappedBy = "marcas")
+        
         @OneToMany
         val modelo: List<Modelo>
 )

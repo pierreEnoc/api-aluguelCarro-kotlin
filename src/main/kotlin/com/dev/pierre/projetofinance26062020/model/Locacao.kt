@@ -31,9 +31,8 @@ data class Locacao (
         val valorLocacao: Double,
         val devolvido: Int,
         
-        @ManyToOne
-        @JoinColumn(name = "id_veiculo")
-        val veiculo: Veiculo
+        @OneToMany
+        val veiculo: List<Veiculo>
         
         //
        // @ManyToOne

@@ -11,24 +11,21 @@ data class Veiculo (
         @Column(name ="id")
         val id: Int,
         val praca: String,
-        //val cor: String,
         val numPorta: Int,
         val kilometragem: Long,
         val renavan: Long,
         val chassi: String,
         val valorLocacao: Double,
         
-        //
-        @OneToMany
+        @ManyToOne
         @JoinColumn(name = "id_modelo")
-        val modelo: List<Modelo>,
+        val modelo: Modelo,
         
           @ManyToOne
           @JoinColumn(name = "id_locacao")
           val locacao: Locacao,
         
          @OneToMany
-         @JoinColumn(name = "id_manutencao")
          val manutencao: List<Manutencao>,
         
         //
@@ -36,9 +33,9 @@ data class Veiculo (
         @JoinColumn(name = "id_cores")
         val cores: Cores,
         
-        @OneToMany
+        @ManyToOne
         @JoinColumn(name = "id_cliente")
-        val cliente: List<Cliente>
+        val cliente: Cliente
        
         //val marcas: List<Marca> = mutableListOf() //athlet
 )

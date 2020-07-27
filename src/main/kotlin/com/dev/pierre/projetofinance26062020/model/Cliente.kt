@@ -14,8 +14,13 @@ data class Cliente (
         val email: String,
         val telefone: String,
         val endereco: String,
-        
+        /*
         @ManyToOne
         @JoinColumn(name = "id_veiculo")
         val veiculo: Veiculo
+         */
+       
+        //@JoinColumn(name = "id_veiculo")
+        @OneToMany
+        val veiculo: List<Veiculo>
 )

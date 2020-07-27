@@ -16,6 +16,6 @@ data class Modelo (
         @JoinColumn(name = "id_marca")
         val marca: Marca,
         
-        @ManyToOne
-        val veiculo: Veiculo
+        @OneToMany
+        val veiculo: List<Veiculo>
 )

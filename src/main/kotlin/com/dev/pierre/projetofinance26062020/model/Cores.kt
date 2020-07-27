@@ -11,6 +11,6 @@ data class Cores (
         val nome: String,
         
          @OneToMany
-         @JoinColumn(name = "id_cor")
+         @JoinColumn(name = "id_cores")
          val cores: List<Veiculo>
 )
